@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:satria/app/data/locals/db.dart';
+import 'package:satria/app/data/models/local_db/user/user_model.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
 
 import 'register_state.dart';
@@ -11,6 +13,18 @@ class RegisterCubit extends Cubit<RegisterState> {
             validate: List.generate(5, (index) => false),
           ),
         );
+
+  Future<int?> registerUser(String name, String email, String password) async {
+    bool isEmailExist = DB.instance.user.values
+            .toList()
+            .indexWhere((element) => element.email == email) !=
+        -1;
+    if (isEmailExist) {
+      return null;
+    }
+    return await DB.instance.user
+        .add(User(name: name, email: email, password: password));
+  }
 
   updateValidator(String? p0) {
     bool isUppercaseExist = false;
@@ -40,5 +54,13 @@ class RegisterCubit extends Cubit<RegisterState> {
       isGajelasExist,
       isLengthJoss
     ]));
+  }
+
+  checkField(String name, String email) async {
+    bool _isAllFilled =
+        name.isNotEmpty && email.isNotEmpty && state.validatePercent == 1;
+    emit(state.copyWith(
+      isAllFilled: _isAllFilled,
+    ));
   }
 }

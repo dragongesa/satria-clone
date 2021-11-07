@@ -2,9 +2,6 @@
 class Assets {
   Assets._();
 
-  static const imageHomelogo = 'assets/image/homelogo.png';
-  static const logoPathNational = 'assets/kisslogologin.png';
-  static const logoPathInternational = 'assets/kisslogo.png';
-  static const googleImage = 'assets/google.jpg';
-  static const appleImage = 'assets/apple.png';
+  static const String lottieRegisterSuccess =
+      'assets/lottie/register_success.json';
 }

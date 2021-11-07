@@ -74,8 +74,10 @@ class _SatriaAppState extends State<SatriaApp> {
                 if (state.isLoggedIn) {
                   _navigator.pushReplacementNamed(Routes.HOME);
                 } else if (state.isNeedRegister) {
+                  _navigator.popUntil((route) => route.isFirst);
                   _navigator.pushReplacementNamed(Routes.REGISTER);
                 } else {
+                  _navigator.popUntil((route) => route.isFirst);
                   _navigator.pushReplacementNamed(Routes.LOGIN);
                 }
               },

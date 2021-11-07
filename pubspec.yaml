@@ -20,6 +20,10 @@ dependencies:
   flutter_secure_storage: 4.2.1
   wc_form_validators: 1.0.0
   flutter_font_icons: 2.2.4
+  lottie: 1.2.1
+  random_password_generator: 0.2.1
+  local_auth: 1.1.8
+  url_launcher: 6.0.12
   flutter: 
     sdk: flutter
 
@@ -32,5 +36,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
+  assets: 
+    - assets/
+    - assets/lottie/
   uses-material-design: true
 

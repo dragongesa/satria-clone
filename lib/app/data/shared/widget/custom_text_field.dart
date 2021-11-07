@@ -11,11 +11,15 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool enabled;
   final bool readOnly;
+  final bool? obscureText;
+  final String? initialValue;
   final Function()? onTap;
   const CustomTextField(
       {Key? key,
       this.maxLines,
       this.hintText,
+      this.obscureText,
+      this.initialValue,
       this.validator,
       this.readOnly = false,
       this.controller,
@@ -30,6 +34,8 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       maxLines: maxLines,
+      obscureText: obscureText ?? false,
+      initialValue: initialValue,
       validator: validator,
       controller: controller,
       enabled: enabled,

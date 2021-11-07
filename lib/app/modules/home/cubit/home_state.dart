@@ -1,13 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'register_state.freezed.dart';
+part 'home_state.freezed.dart';
 
 @freezed
-class RegisterState with _$RegisterState {
-  const RegisterState._();
-  const factory RegisterState({
+class HomeState with _$HomeState {
+  const HomeState._();
+  const factory HomeState({
     @Default([]) List<bool> validate,
-    @Default(false) bool isAllFilled,
-  }) = _RegisterState;
+  }) = _HomeState;
 
   double get validatePercent {
     var top = List.from(validate)..retainWhere((element) => element == true);

@@ -8,4 +8,9 @@ class DB {
   final credential = Hive.box<Credential>('credential');
   final auth = Hive.box<Auth>('auth');
   static DB instance = DB();
+
+  int get currentUserId {
+    return DB.instance.user.keyAt(
+        user.values.toList().indexOf(DB.instance.auth.getAt(0)!.userData!));
+  }
 }

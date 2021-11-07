@@ -17,9 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RegisterStateTearOff {
   const _$RegisterStateTearOff();
 
-  _RegisterState call({List<bool> validate = const []}) {
+  _RegisterState call(
+      {List<bool> validate = const [], bool isAllFilled = false}) {
     return _RegisterState(
       validate: validate,
+      isAllFilled: isAllFilled,
     );
   }
 }
@@ -30,6 +32,7 @@ const $RegisterState = _$RegisterStateTearOff();
 /// @nodoc
 mixin _$RegisterState {
   List<bool> get validate => throw _privateConstructorUsedError;
+  bool get isAllFilled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterStateCopyWith<RegisterState> get copyWith =>
@@ -41,7 +44,7 @@ abstract class $RegisterStateCopyWith<$Res> {
   factory $RegisterStateCopyWith(
           RegisterState value, $Res Function(RegisterState) then) =
       _$RegisterStateCopyWithImpl<$Res>;
-  $Res call({List<bool> validate});
+  $Res call({List<bool> validate, bool isAllFilled});
 }
 
 /// @nodoc
@@ -56,12 +59,17 @@ class _$RegisterStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? validate = freezed,
+    Object? isAllFilled = freezed,
   }) {
     return _then(_value.copyWith(
       validate: validate == freezed
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      isAllFilled: isAllFilled == freezed
+          ? _value.isAllFilled
+          : isAllFilled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -73,7 +81,7 @@ abstract class _$RegisterStateCopyWith<$Res>
           _RegisterState value, $Res Function(_RegisterState) then) =
       __$RegisterStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<bool> validate});
+  $Res call({List<bool> validate, bool isAllFilled});
 }
 
 /// @nodoc
@@ -90,12 +98,17 @@ class __$RegisterStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? validate = freezed,
+    Object? isAllFilled = freezed,
   }) {
     return _then(_RegisterState(
       validate: validate == freezed
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      isAllFilled: isAllFilled == freezed
+          ? _value.isAllFilled
+          : isAllFilled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,15 +116,19 @@ class __$RegisterStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RegisterState extends _RegisterState {
-  const _$_RegisterState({this.validate = const []}) : super._();
+  const _$_RegisterState({this.validate = const [], this.isAllFilled = false})
+      : super._();
 
   @JsonKey(defaultValue: const [])
   @override
   final List<bool> validate;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isAllFilled;
 
   @override
   String toString() {
-    return 'RegisterState(validate: $validate)';
+    return 'RegisterState(validate: $validate, isAllFilled: $isAllFilled)';
   }
 
   @override
@@ -119,12 +136,14 @@ class _$_RegisterState extends _RegisterState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _RegisterState &&
-            const DeepCollectionEquality().equals(other.validate, validate));
+            const DeepCollectionEquality().equals(other.validate, validate) &&
+            (identical(other.isAllFilled, isAllFilled) ||
+                other.isAllFilled == isAllFilled));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(validate));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(validate), isAllFilled);
 
   @JsonKey(ignore: true)
   @override
@@ -133,11 +152,14 @@ class _$_RegisterState extends _RegisterState {
 }
 
 abstract class _RegisterState extends RegisterState {
-  const factory _RegisterState({List<bool> validate}) = _$_RegisterState;
+  const factory _RegisterState({List<bool> validate, bool isAllFilled}) =
+      _$_RegisterState;
   const _RegisterState._() : super._();
 
   @override
   List<bool> get validate;
+  @override
+  bool get isAllFilled;
   @override
   @JsonKey(ignore: true)
   _$RegisterStateCopyWith<_RegisterState> get copyWith =>
